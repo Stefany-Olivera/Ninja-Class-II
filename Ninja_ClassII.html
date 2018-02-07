@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Ninja(name){
+            
+            this.name=name;
+            this.health=100;
+            let speed=3;
+            let strength=3;
+
+            this.sayName=function(){
+                console.log("My ninja name is " + this.name + "!");
+                return this
+            };
+            this.showStats=function(){
+                console.log("Name:"+this.name+", Health:"+this.health+", Speed: "+speed+" ,Strength:"+strength)
+                return this
+            }
+            this.drinkSake=function(){
+                this.health += 10;
+                console.log("Health is now "+this.health)
+                return this
+            };
+            this.punch =function(object) {
+            let hurt = 5;
+            if (object instanceof Ninja) {
+                this.health -= hurt;
+                
+                console.log(object instanceof Ninja)
+                console.log(`${this.name} was punched by ${object.name} and lost ${hurt} health!`);
+                return this.health;
+            };
+        }
+            this.kick = function(object) {
+            let pain = 15;
+            if (object instanceof Ninja) {
+                this.health -= pain;
+                console.log(this.health)
+                console.log(object instanceof Ninja)
+                console.log(`${this.name} was kicked by ${object.name} and lost ${pain} health! Health is now ${this.health}`);
+                return this.health;
+            };
+        }
+    }
+
+    let bob=new Ninja("Bob");
+    let susie=new Ninja("Susie")
+    // bob.sayName();
+    // bob.showStats();
+    // bob.drinkSake();
+    // bob.punch(susie);
+    bob.kick(susie);
+    bob.kick(susie);
+    
+
+    // console.log(bob);
+
+    // "Goemon was punched by Bill Gates and lost 5 Health!"
+    </script>
+</body>
+
+</html>
